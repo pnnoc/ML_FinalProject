@@ -3,6 +3,7 @@ channels:
   - bioconda
   - conda-forge
   - defaults
+  - pytorch
 dependencies:
   - python=3.10
   - root
@@ -17,4 +18,6 @@ dependencies:
   - ca-certificates
   - certifi
   - openssl
+  - pytorch
+  - cudatoolkit=11.3
 prefix: /Users/con_np/micromamba/envs/r3k_bdttools

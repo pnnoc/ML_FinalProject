@@ -172,3 +172,34 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# IDEs and File System 
+.vscode/
+.idea/
+.DS_Store
+
+# PyTorch model checkpoints
+*.pt
+*.pth
+*.bin
+
+# Cached data files
+data/
+cache/
+.root
+
+# CUDA build artifacts
+*.o
+*.obj
+*.so
+*.dll
+*.cubin
+*.ptx
+*.cxx
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp

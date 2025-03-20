@@ -9,7 +9,7 @@ conda activate ml_project
 ```
 
 # Data_file
-The data files are too large but be uploaded tto git, use the link below
+The data files are too large but be uploaded to git, use the link below
 https://o365coloradoedu-my.sharepoint.com/:f:/g/personal/namu7292_colorado_edu/Eja7djNcVAlFvEtgTw32-vUBJeRSbJjM00gG28M32lYVIw?e=AHmkEZ
 
 # Uproot
