@@ -1,0 +1,20 @@
+name: /Users/con_np/micromamba/envs/r3k_bdttools
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - root
+  - numpy
+  - awkward=2.4.6
+  - uproot
+  - scikit-learn
+  - xgboost
+  - matplotlib
+  - hep_ml
+  - hist
+  - ca-certificates
+  - certifi
+  - openssl
+prefix: /Users/con_np/micromamba/envs/r3k_bdttools
