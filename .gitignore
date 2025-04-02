@@ -186,7 +186,7 @@ cython_debug/
 # Cached data files
 data/
 cache/
-.root
+*.root
 
 # CUDA build artifacts
 *.o
