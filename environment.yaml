@@ -13,6 +13,8 @@ dependencies:
   - scikit-learn
   - xgboost
   - matplotlib
+  - seaborn
+  - pandas
   - hep_ml
   - hist
   - ca-certificates
