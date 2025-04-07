@@ -10,8 +10,8 @@ import seaborn as sns # type: ignore
 
 class ResultsBuilder:
     def __init__(self, 
-                 test_dataloader: DataLoader, 
-                 test_u_dataloader: DataLoader, 
+                 test_dataloader: DataLoader = None, 
+                 test_u_dataloader: DataLoader = None, 
                  device: torch.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")):
         self.test_dataloader = test_dataloader
         self.test_u_dataloader = test_u_dataloader
@@ -88,13 +88,43 @@ class ResultsBuilder:
         self.accuracies[f"{model_name}"] = accuracy
 
     def plot_accuracy_by_architecture(self):
-        keys = list(self.accuracies.keys())
-        values = list(self.accuracies.values())
+        self.plot_dictionary(self.accuracies, 'Architecture', 'Accuracy', "Accuracy by Model Architecture")
+
+    def plot_dictionary(self, dictionary:dict, xlabel:str, ylabel:str, title:str):
+        keys = list(dictionary.keys())
+        values = list(dictionary.values())
 
         plt.bar(keys, values)
 
-        plt.xlabel('Architecture')
-        plt.ylabel('Accuracy')
-        plt.title('Accuracy by Model Architecture')
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
+        plt.title(title)
 
         plt.show()
+
+class ModelSaver:
+    def __init__(self):
+        pass
+
+    def export(self, model:nn.Module, filename:str, full_architecture:bool):
+        model.eval()
+        to_save = None
+        if full_architecture == True:
+            to_save = model
+            filename = f"{filename}.pt"
+        else:
+            to_save = model.state_dict()
+            filename = f"{filename}.pth"
+        
+        torch.save(to_save, filename)
+        print(f"{filename} successfully saved to directory")
+
+    def load_state_dict(self, model:nn.Module, filename:str):
+        model.load_state_dict(torch.load(filename))
+        model.eval() 
+        return model
+    
+    def load_full_model(self, filename:str):
+        model = torch.load(filename)
+        model.eval()
+        return model
